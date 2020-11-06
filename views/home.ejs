@@ -1,0 +1,29 @@
+<%- include ("partials/header") %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to imWatching</h1>
+			<p>Add movies to your shelf</p>
+			<p>
+				<a class="btn btn-primary btn-large" href="/library">View My Shelf</a>
+			</p>
+		</div>
+	</header>
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<%movies.forEach(function(movie){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<img src="<%= movie["Poster"] %>" class="img-fluid">
+					<div class="caption">
+						<h4><%= movie["Title"] %></h4>
+					</div>
+					<p>
+						<a href="/library/<%= movie["imdbID"] %>" class="btn btn-primary">More Info</a>
+					</p>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+<%- include("partials/footer") %>
